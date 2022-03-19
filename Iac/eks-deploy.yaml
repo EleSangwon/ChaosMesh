@@ -1,0 +1,12 @@
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: # set name
+  region: us-west-2 # region-name
+  version: "1.21"
+availabilityZones: ["us-west-2a","us-west-2b","us-west-2c"] # aws vpc
+managedNodeGroups:
+- name: node-group
+  desiredCapacity: 1
+  instanceType: t3.medium
