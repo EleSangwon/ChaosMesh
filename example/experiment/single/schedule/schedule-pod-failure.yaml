@@ -1,0 +1,19 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: Schedule
+metadata:
+  name: schedule-pod-failure-nginx
+  namespace: chaos-testing
+spec:
+  schedule: '@every 60s'
+  type: PodChaos
+  historyLimit: 5
+  concurrencyPolicy: Forbid
+  podChaos:
+    action: pod-failure
+    mode: all
+    duration: '30s'
+    selector:
+      namespaces:
+        - default
+      labelSelectors:
+        "app": "nginx"
