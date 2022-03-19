@@ -1,7 +1,9 @@
 name: Chaos-mesh github actions integration
 on:
-  push:
-    branches: main
+  pull_request:
+    branches: temp
+  # push:
+  #   branches: main
 jobs:
   build:
     runs-on: ubuntu-latest
